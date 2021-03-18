@@ -7,14 +7,13 @@ class ConfirmacionForm(forms.ModelForm):
 
     class Meta:
         model = Confirmacion
-        fields = ('name', 'surname', 'have_a_partner', 'partner_name', 'partner_surname',
-                  'bus_service', 'bus', 'bus_place', 'song_name', 'food_restrictions')
+        fields = ('name', 'surname', 'bus_service', 'bus', 'bus_place', 'song_name', 'food_restrictions')
 
 
 class InscripcionForm(forms.ModelForm):
     class Meta:
         model = InscripcionCampeonato
-        fields = ('name', 'surname', 'licencia', 'handicap')
+        fields = ('name', 'surname', 'licencia', 'handicap','wantToRent','day_pref')
 
 
 class BestWishesForm(forms.ModelForm):

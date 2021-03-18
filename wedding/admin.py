@@ -9,17 +9,13 @@ class WebPasswordAdmin(admin.ModelAdmin):
 
 @admin.register(Confirmacion)
 class ConfirmacionAdmin(admin.ModelAdmin):
-    list_display = ['surname', 'name',
-                    'have_a_partner', 'bus_service', 'bus', 'song_name']
-    list_filter = ['name', 'surname', 'have_a_partner', 'bus_service']
+    list_display = ['surname', 'name','bus_service', 'bus', 'song_name']
+    list_filter = ['name', 'surname', 'bus_service']
     search_fields = ['name', 'surname',
                      'partner_name', 'partner_surname', 'song_name']
     fieldsets = (
         ('Datos personales', {
             'fields': ('name', 'surname')
-        }),
-        ('Datos acompañante', {
-            'fields': ('have_a_partner', 'partner_name', 'partner_surname')
         }),
         ('Autobús', {
             'fields': ('bus_service', 'bus', 'bus_place')
@@ -60,8 +56,9 @@ class ItinerarioAdmin(admin.ModelAdmin):
 
 @admin.register(InscripcionCampeonato)
 class InscripcionCampeonatoAdmin(admin.ModelAdmin):
-    list_display = ['name', 'surname','licencia', 'handicap']
-
+    list_display = ['name', 'surname','licencia', 'handicap','wantToRent']
+    list_filter = ['wantToRent','day_pref']
+    search_fields = ['name', 'surname']
 
 @admin.register(BestWishes)
 class BestWishesAdmin(admin.ModelAdmin):

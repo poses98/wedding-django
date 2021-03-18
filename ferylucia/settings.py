@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Read SECRET_KEY from an environment variable
 import os
-SECRET_KEY = 'pa%g-@kt$n#qim53(f$o%hei=bj!aqig2_yat(-l9*%8@%lnwg'
+SECRET_KEY = os.environ.get('SECRET_DJANGO_KEY','pa%g-@kt$n#qim53(f$o%hei=bj!aqig2_yat(-l9*%8@%lnwg')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 

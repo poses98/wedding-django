@@ -25,13 +25,6 @@ class Confirmacion(models.Model):
     surname = models.CharField(
         max_length=50, help_text='Introduce tu apellido', verbose_name='Apellido')
 
-    have_a_partner = models.BooleanField(
-        verbose_name='Acompañante', help_text='¿Traes un acompañante?', default=False)
-    partner_name = models.CharField(max_length=50, help_text='Introduce el nombre del acompañante',
-                                    verbose_name='Nombre acompañante', blank=True, default='')
-    partner_surname = models.CharField(max_length=50, help_text='Introduce el apellido del acompañante',
-                                       verbose_name='Apellido acompañante', blank=True, default='')
-
     bus_service = models.BooleanField(
         default=False, help_text='¿Necesitas autobús?', verbose_name='Autobús')
     bus = models.ForeignKey('Autobus', verbose_name="Lugar de autobús",
@@ -133,6 +126,22 @@ class InscripcionCampeonato(models.Model):
         verbose_name="Handicap", help_text="Introduce tu handicap", decimal_places=2, max_digits=4)
     licencia = models.CharField(max_length=12, help_text='Introduce tu número de licencia',
                                 verbose_name='Número de licencia', default='', null=True)
+    wantToRent = models.BooleanField(default=False, help_text='¿Alquilarías palos?', verbose_name='Palos', blank=True)
+
+    DIA = (
+        ('m', 'Viernes por la mañana'),
+        ('t', 'Viernes por la tarde'),
+        ('i', 'Me da igual'),
+    )
+
+    day_pref = models.CharField(
+        max_length=1,
+        choices=DIA,
+        blank=False,
+        default='',
+        help_text='¿Cuándo te viene mejor?',
+        verbose_name='Hora'
+    )
 
     class Meta:
         verbose_name = ('inscripción campeonato')
