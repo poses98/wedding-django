@@ -1,0 +1,42 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<div id="fh5co-event" class="fh5co-bg" style="background-image:url(https://images.unsplash.com/photo-1538423070486-9292881ea10a?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTN8fGdvbGZ8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&w=1000&q=80);">
+
+		<div class="container">
+            <div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+					<h2>{{golf.name}}</h2>
+                    <span>{{golf.description}}</span>
+				</div>
+			</div>
+
+            <div class="row animate-box">
+
+						<div class="col-md-10 col-md-offset-1">
+                                <div class="col-md-12 col-sm-6 text-center">
+                                    <div class="event-wrap animate-box">
+
+                                        <h3>Información</h3>
+
+                                        <div class="">
+                                            <span><a href="{{golf.location_url}}"><i class="fas fa-map-marker-alt"></i> Lugar:<br> {{golf.lugar}} </a></span>
+                                            <span><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5839.206386976578!2d-1.6795106715971075!3d42.96556581758496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd50ee33d79b513d%3A0x8208ee6649fc333d!2sClub%20de%20Golf%20Ulzama!5e0!3m2!1ses!2ses!4v1615833813973!5m2!1ses!2ses" style="border:6;border-color:#fafafa;border-radius:5px;width:100%;height:300px" allowfullscreen="" class="cold-md-6" loading="lazy"></iframe></span>
+                                            <span><i class="fas fa-clock"></i> Fecha:<br> {{golf.fecha}} </span>
+                                            <br>
+                                            <span>
+                                                <a href="{%url 'inscripcion_campeonato'%}">
+                                                    <button class="btn btn-primary btn-block btn-lg">Inscribirme</button>
+                                                </a>
+                                            </span>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+					    </div>
+            </div>
+        </div>
+</div>
+
+{% endblock %}

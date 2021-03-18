@@ -1,0 +1,66 @@
+{% extends 'base_generic.html' %}
+{% load crispy_forms_tags %}
+
+{%block content%}
+<div id="fh5co-event" class="fh5co-bg" style="background-image:url(https://www.marbellauniqueproperties.com/blog/wp-content/uploads/2016/12/Apartamentos-en-campos-de-golf-en-Marbella-Marbella-Unique-Properties.jpg);">
+
+		<div class="container">
+            <div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+					<h2>Inscripción en el campeonato</h2>
+                    <span>Porfavor rellena el formulario</span>
+				</div>
+			</div>
+                <form method='post' class="confirmation-form animate-box" autocomplete="nope"> {% csrf_token %}
+                    
+                    <p class="text-center text-danger">Los campos marcados con * son obligatorios</p>
+
+                    <div class="panel-group">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <a data-toggle="collapse" href="#collapse1">
+                                    <h4 class="panel-title">
+                                        Información personal<i class="fas fa-chevron-down text-right"></i>
+                                    </h4>
+                                </a>
+                            </div>
+                            <div id="collapse1" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <div class="form-row">
+                                        {{ form.name|as_crispy_field }}
+                                    </div>
+                                    <div class="form-row">
+                                        {{ form.surname|as_crispy_field }}
+                                    </div>
+                                    <div class="form-row">
+                                        {{ form.licencia|as_crispy_field }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                            <a data-toggle="collapse" href="#collapse2">
+                                <h4 class="panel-title">
+                                    Hándicap <i class="fas fa-chevron-down"></i>
+                                </h4>
+                            </a>
+                            </div>
+                            <div id="collapse2" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <div class="form-row">
+                                        {{ form.handicap|as_crispy_field }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <input class='btn btn-primary btn-lg btn-block' type="submit" value='Enviar'/>
+
+                </form>
+            
+        </div>
+</div>
+{% endblock %}

@@ -1,0 +1,146 @@
+{% extends "base_generic.html" %}
+	
+{% block content %}
+	<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(/static/img/bg/irurita.jpg);" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center">
+					<div class="display-t">
+						<div class="display-tc animate-box" data-animate-effect="fadeIn">
+							<h1>{{nombres_pareja.novio}} y<br>{{nombres_pareja.novia}}</h1>
+							<h2>{{fecha_boda.get_day}} de {{mes_boda}} de {{fecha_boda.get_year}}</h2>
+							<div class="simply-countdown simply-countdown-one"></div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</header>
+
+	<div id="fh5co-couple">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+					<h2 class="beautiful-header">{{lugar_boda.name}}</h2>
+					<p>{{lugar_boda.mensaje}}</p>
+				</div>
+			</div>
+			<div class="couple-wrap animate-box">
+				<div class="couple-half">
+					<div class="groom">
+					</div>
+					<div class="desc-groom">
+						<h3>{{nombres_pareja.novio}}</h3>
+						<p>{{nombres_pareja.descripcion_novio}}</p>
+					</div>
+				</div>
+				<p class="heart text-center"><i class="icon-heart2"></i></p>
+				<div class="couple-half">
+					<div class="bride">
+					</div>
+					<div class="desc-bride">
+						<h3>{{nombres_pareja.novia}}</h3>
+						<p>{{nombres_pareja.descripcion_novia}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+
+	<div id="fh5co-couple-story">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+					<h2>{{itinerario_header.name}}</h2>
+					<p>{{itinerario_header.description}}</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 col-md-offset-0">
+					<ul class="timeline animate-box">
+						{%for event in itinerario %}
+						<!-- Caja itinerario izquierda -->
+						<li {%if forloop.counter0|divisibleby:2 %}class="animate-box"{%else%}class="timeline-inverted animate-box"{%endif%}>
+							<div class="timeline-badge" style="background-image:url({{event.image}});"></div>
+							<div class="timeline-panel">
+								<div class="timeline-heading">
+									<h3 class="timeline-title">{{event.name}}</h3>
+									<span class="date">Inicio: {{event.start_time}}</span>
+									<span class="date">{% if event.end_time%}Fin: {{event.end_time}}{%endif%}</span>
+								</div>
+								<div class="timeline-body">
+									<p>{{event.description}}</p>
+								</div>
+							</div>
+						</li>
+						{%endfor%}
+			    	</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% load static %}
+	<div id="fh5co-counter" class="fh5co-bg fh5co-counter" style="background-image:url({% static 'img/bg/img_bg_5.jpg'%});">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="display-t">
+					<div class="display-tc">
+						<div class="animate-box">
+							<div class="feature-center">
+								<span class="icon">
+									<i class="icon-users"></i>
+								</span>
+								<span class="counter js-counter" data-from="0" data-to="{{numero_invitados}}" data-speed="5000" data-refresh-interval="50">1</span>
+								<span class="counter-label">Confirmaciones</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% if mensajes.count > 1%}
+	<div id="fh5co-testimonial">
+		<div class="container">
+			<div class="row">
+				<div class="row animate-box">
+					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+						<span></span>
+						<h2>Mensajes para los novios</h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 animate-box">
+						<div class="wrap-testimony">
+							<div class="owl-carousel-fullwidth">
+							
+								{% for mensaje in mensajes %}
+								<div class="item">
+									<div class="testimony-slide active text-center">
+										<span>{{mensaje.name}} {{mensaje.surname}}</span>
+										<blockquote>
+											<p>{{mensaje.message}}</p>
+										</blockquote>
+									</div>
+								</div>
+								{% endfor %}
+							</div>
+							<a href="{%url 'form_best_wishes' %}">
+                        		<button class="btn btn-primary btn-block btn-lg">¡Envía el tuyo!</button>
+                    		</a>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	{%endif%}
+
+{% endblock content%}
+	

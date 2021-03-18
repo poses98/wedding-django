@@ -1,0 +1,134 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+
+{% if sitiosinteres_list %}
+<div id="fh5co-event" class="fh5co-bg" style="background-image:url(/static/img/bg/navarra.jpg);">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+					<h2>Lugares recomendados</h2>
+                    <span>Comer, alojarse, peluquería y turismo</span>
+				</div>
+			</div>
+            
+			<div class="row">
+                    <div class="row animate-box">
+                        <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                            <h2 id="alojamiento">Hoteles</h2>
+                        </div>
+                    </div>
+						<div class="col-md-10 col-md-offset-1">
+                        {% for sitiosinteres in sitiosinteres_list %}
+                            {% if sitiosinteres.site_type == "h"%}
+                                <div class="col-md-6 col-sm-6 text-center">
+                                    <div class="event-wrap animate-box">
+                                        <a target="_blank" href="{{ sitiosinteres.web }}">
+                                            <h3>{{ sitiosinteres.name }}</h3>
+                                        </a>
+                                        <div class="">
+                                            <i class="icon-phone"></i>
+                                            <span><a href="tel:+34{{sitiosinteres.phone}}">{{ sitiosinteres.phone }}</a></span>
+                                        </div>
+                                        <p></p>
+                                    </div>
+                                </div>
+                            {% endif %}
+						{% endfor %}
+					    </div>
+					
+			</div>
+            <div class="row">
+				
+                    <div class="row animate-box">
+                        <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                            <h2 id="restaurantes">Restaurantes</h2>
+                        </div>
+                    </div>
+						<div class="col-md-10 col-md-offset-1">
+                        {% for sitiosinteres in sitiosinteres_list %}
+                            {% if sitiosinteres.site_type == "r" %}
+                                <div class="col-md-6 col-sm-6 text-center">
+                                    <div class="event-wrap animate-box">
+                                        <a target="_blank" href="{{ sitiosinteres.web }}">
+                                            <h3>{{ sitiosinteres.name }}</h3>
+                                        </a>
+                                        <div class="">
+                                            <i class="icon-phone"></i>
+                                            <span><a href="tel:+34{{sitiosinteres.phone}}">{{ sitiosinteres.phone }}</a></span>
+                                        </div>
+                                        <p></p>
+                                    </div>
+                                </div>
+                            {% endif %}
+						{% endfor %}
+						</div>
+
+			</div>
+            <div class="row">
+				
+                    <div class="row animate-box">
+                        <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                            <h2 id="peluquerias">Peluquerías</h2>
+                        </div>
+                    </div>
+						<div class="col-md-10 col-md-offset-1">
+                        {% for sitiosinteres in sitiosinteres_list %}
+                            {% if sitiosinteres.site_type == "p" %}
+                                <div class="col-md-6 col-sm-6 text-center">
+                                    <div class="event-wrap animate-box">
+                                        <a target="_blank" href="{{ sitiosinteres.web }}">
+                                            <h3>{{ sitiosinteres.name }}</h3>
+                                        </a>
+                                        <div class="">
+                                            <i class="icon-phone"></i>
+                                            <span><a href="tel:+34{{sitiosinteres.phone}}">{{ sitiosinteres.phone }}</a></span>
+                                        </div>
+                                        <p></p>
+                                    </div>
+                                </div>
+                            {% endif %}
+						{% endfor %}
+						</div>
+
+			</div>
+            <div class="row">
+                    <div class="row animate-box">
+                        <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                            <h2 id="sitiosinteres">Lugares que no te puedes perder</h2>
+                        </div>
+                    </div>
+						<div class="col-md-10 col-md-offset-1">
+                        {% for sitiosinteres in sitiosinteres_list %}
+                            {% if sitiosinteres.site_type == "s" %}
+                                <div class="col-md-6 col-sm-6 text-center">
+                                    <div class="event-wrap animate-box">
+                                        <a target="_blank" href="{{ sitiosinteres.web }}">
+                                            <h3>{{ sitiosinteres.name }}</h3>
+                                        </a>
+                                        <div class="box-image-card">
+                                            <img class="image-card" src="{{ sitiosinteres.picture }}" alt="Imagen {{sitiosinteres.name}}">                                           
+                                        </div>
+                                        <p></p>
+                                    </div>
+                                </div>
+                            {% endif %}
+						{% endfor %}
+						</div>
+
+			</div>
+		</div>
+	</div>
+
+  {% else %}
+    <p>Ha habido un error al cargar la lista. Contacte con el administrador de la página</p>
+  {% endif %} 
+
+
+
+  
+  
+
+{% endblock %}
