@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('SECRET_DJANGO_KEY','pa%g-@kt$n#qim53(f$o%hei=bj!aqi
 
 DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
-ALLOWED_HOSTS = ['intense-shore-20203.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['luciayfer.herokuapp.com','127.0.0.1']
 
 
 # Application definition
